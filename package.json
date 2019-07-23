@@ -4,7 +4,12 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "api": "nodemon server.js",
+    "client": "cd client && npm run serve",
+    "start:dev": "concurrently \"npm run api\" \"npm run client\"",
+    "build": "cd client && npm install && npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -17,5 +22,10 @@
     "url": "https://github.com/mathewbishop/mevn-starter/issues"
   },
   "homepage": "https://github.com/mathewbishop/mevn-starter#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "concurrently": "^4.1.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.6"
+  }
 }
